@@ -13,7 +13,7 @@ public struct CMLottiePlayer: UIViewRepresentable {
     public typealias UIViewType = UIView
     public let filename: String
     public let animationView = AnimationView()
-    public let isPaused: Bool
+    public let isPlay: Bool
     public let loopMode: LottieLoopMode
 
     public func makeUIView(context: UIViewRepresentableContext<CMLottiePlayer>) -> UIView {
@@ -36,10 +36,10 @@ public struct CMLottiePlayer: UIViewRepresentable {
     }
 
     public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<CMLottiePlayer>) {
-        if isPaused {
-            context.coordinator.parent.animationView.pause()
-        } else {
+        if isPlay {
             context.coordinator.parent.animationView.play()
+        } else {
+            context.coordinator.parent.animationView.pause()
 
         }
     }
@@ -57,23 +57,23 @@ public struct CMLottiePlayer: UIViewRepresentable {
     }
     
     /// Configrate Lottie Animation Loop Mode( .loop, .playOnce , etc..)
-    public init(filename: String, isPaused: Bool, loopMode: LottieLoopMode) {
+    public init(filename: String, isPlay: Bool, loopMode: LottieLoopMode) {
         self.filename = filename
-        self.isPaused = isPaused
+        self.isPlay = isPlay
         self.loopMode = loopMode
     }
     
     /// Control Play & Pause through isPaused
-    public init(filename: String, isPaused: Bool) {
+    public init(filename: String, isPlay: Bool) {
         self.filename = filename
-        self.isPaused = isPaused
+        self.isPlay = isPlay
         self.loopMode = .loop
     }
     
     /// Only Filename, playmode:.loop(default)
     public init(filename: String) {
         self.filename = filename
-        self.isPaused = false
+        self.isPlay = true
         self.loopMode = .loop
     }
 }
@@ -81,11 +81,11 @@ public struct CMLottiePlayer: UIViewRepresentable {
 extension CMLottiePlayer {
     /// View Modifier for CMLottiePlayer that makes loopMode to .playOnce
     public func playOnce() -> CMLottiePlayer{
-        CMLottiePlayer(filename: self.filename, isPaused: self.isPaused, loopMode: .playOnce)
+        CMLottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .playOnce)
     }
     
     /// View Modifier for CMLottiePlayer that makes loopMode to .repeat(count: Float)
     public func playRepeat(_ count : Float) -> CMLottiePlayer {
-        CMLottiePlayer(filename: self.filename, isPaused: self.isPaused, loopMode: .repeat(count))
+        CMLottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .repeat(count))
     }
 }
