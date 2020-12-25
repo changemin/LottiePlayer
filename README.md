@@ -7,7 +7,8 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/CM-Material/CMLottiePlayer?style=for-the-badge)
+
 
 </div>
 
