@@ -17,7 +17,7 @@
     <br> 
 </p>
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Getting Started
 
 ### Requirements
 * iOS 14+
@@ -38,24 +38,29 @@ Download and Add you Lottie file(JSON) to project file
 
 ## 🎈 Usage
 
+#### 👶 Simple
 ```Swift
 CMLottiePlayer(filename: "LottieFile")
-CMLottiePlayer(filename: "LottieFile", isPlay: Bool)
-CMLottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
 ```
 * `filename` : Lottie file(JSON) name you added in the project file
-* `isPlay` : Boolean that controls play/pause
-* `loopMode` : `LottieLoopMode`
 
-#### Modifiers
+
+#### 🛠Modifiers
 ```Swift
 CMLottiePlayer(filename: "LottieFile").playOnce()
 // Play only once
 CMLottiePlayer(filename: "LottieFile").playRepeat(3)
 // Play n times
 ```
+#### 🕹Controllable
 
-#### Controllable
+```Swift
+CMLottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
+```
+* `isPlay` : Boolean that controls play/pause
+* `loopMode` : `LottieLoopMode`
+
+## Example
 ```Swift
 import CMLottiePlayer
 
@@ -73,7 +78,6 @@ struct ContentView: View {
     }
 }
 ```
-
 
 ## ✍️ Author
 
