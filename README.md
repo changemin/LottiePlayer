@@ -46,6 +46,8 @@ CMLottiePlayer(filename: "LottieFile", isPlay: Bool)
 CMLottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
 ```
 * `filename` : Lottie file(JSON) name you added in the project file
+* `isPlay` : Boolean that controls play/pause
+* `loopMode` : `LottieLoopMode`
 
 #### Modifiers
 ```Swift
