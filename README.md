@@ -7,8 +7,6 @@
 
 <div align="center">
 
-[![License](https://img.shields.io/github/license/CM-Material/CMLottiePlayer?style=for-the-badge)](/LICENSE)
-
 ![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)
 
 </div>
