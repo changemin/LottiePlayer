@@ -1,129 +1,80 @@
-# CMLottiePlayer
-
 <p align="center">
-    <img src="src/main-preview.gif" width="50%" />
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="src/LottieFile.gif" alt="Project logo"></a>
 </p>
 
-SwiftUI Lottie Player
+<h3 align="center">🍭CMLottiePlayer🍭</h3>
 
-## Preview
+<div align="center">
 
-<p align="center">
-    <img src="src/appVideo.gif" width="40%" />
+[![License](https://img.shields.io/github/license/CM-Material/CMLottiePlayer?style=for-the-badge)](/LICENSE)
+
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen?style=for-the-badge)
+
+</div>
+
+---
+
+<p align="center"> Simple Way to Implement Lottie Animation in SwiftUI
+    <br> 
 </p>
 
-## Requirements
-* Xcode 11+
-* SwiftUI
+## 🏁 Getting Started <a name = "getting_started"></a>
+
+### Requirements
 * iOS 14+
-* macOS 10.15+
+* macOS 11+
+* SwiftUI
 
-## Installaion
-### Swift Package Manager(SPM)
-    File ➜ Swift Packages ➜ Add Package Dependancy..
-
-## Usage
+### Installing
+#### Swift Package Manager
 ```Swift
-CMFloatingTextField(_ content: Binding<String>, placeholder: String)
-CMFloatingSecureField(_ content: Binding<String>, placeholder: String)
-// Secure Field for password
+File ➜ Swift Packages ➜ Add Package Dependancy..
 ```
-* `content` : user input
-* `placeholder` : placeholder text before add text
-
-#### Custom Modifiers
 ```Swift
-CMFloatingTextField(_ content: Binding<String>, placeholder: String)
-    .accentColor(_ color: Color)
-    .contentType(_ contentType: ContentType)
-    .icon(systemName icon : String)
-    .showClearButton(_ show: Bool)
-    .styled(_ style: CMFloatingTextFieldStyle)
-
-// All of the parameter is optional
+.package(url: "https://github.com/CM-Material/CMLottiePlayer", from: "1.0.0")
 ```
-* `.accentColor()` : Width of button
-* `.contentType()` : `.none` `.email` `.number` `.phone` `.name` support different keyboard type
-* `.icon()` : icon name of `SF Symbols` 
-* `.showClearButton()` : to show clear button or not
-* `.styled()`(In Progess) : `CMFloatingTextFieldStyle.normal`, `CMFloatingTextFieldStyle.sqaure`
-## Example
-### Simple
+
+### Prepare
+Download and Add you Lottie file(JSON) to project file
+
+## 🎈 Usage
+
 ```Swift
-import SwiftUI
-import CMFloatingTextField
+CMLottiePlayer(filename: "LottieFile")
+CMLottiePlayer(filename: "LottieFile", isPlay: Bool)
+CMLottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
+```
+* `filename` : Lottie file(JSON) name you added in the project file
+
+#### Modifiers
+```Swift
+CMLottiePlayer(filename: "LottieFile").playOnce()
+// Play only once
+CMLottiePlayer(filename: "LottieFile").playRepeat(3)
+// Play n times
+```
+
+#### Controllable
+```Swift
+import CMLottiePlayer
 
 struct ContentView: View {
-    @State var input: String = ""
-    
+    @State var isPlay: Bool = false
     var body: some View {
-        CMFloatingTextField($input, placeholder: "Please type")
-            .padding()
+        CMLottiePlayer(filename: "LottieFile", isPlay: isPlay)
+        
+        Button(action: {
+            isPlay.toggle()
+            // Change play or not
+        }) {
+            Text(isPlay ? "Pause" : "Play")
+        }
     }
 }
 ```
-### Result
-<p float="left">
-    <img src="src/Example-simple-1.png" width="25%">
-    <img src="src/Example-simple-2.png" width="25%">
-    <img src="src/Example-simple-3.png" width="25%">
-</p>
 
-### Add Icon
-```Swift
-import SwiftUI
-import CMFloatingTextField
 
-struct ContentView: View {
-    @State var input: String = ""
-    
-    var body: some View {
-        CMFloatingTextField($input, placeholder: "Please type")
-            .icon(systemName: "flame.fill")
-            .padding()
-    }
-}
-```
-### Result
-<p float="left">
-    <img src="src/Example-icon-1.png" width="25%">
-    <img src="src/Example-icon-2.png" width="25%">
-    <img src="src/Example-icon-3.png" width="25%">
-</p>
+## ✍️ Author
 
-### Advanced
-```Swift
-import SwiftUI
-import CMFloatingTextField
-
-struct ContentView: View {
-    @State var input: String = ""
-    
-    var body: some View {
-        CMFloatingTextField($input, placeholder: "Nick Name")
-            .icon(systemName: "flame.fill")
-            .contentType(.name)
-            .accentColor(Color.orange)
-            .autocapitalization(.none)
-            .disableAutocorrection(true)
-            .padding()
-    }
-}
-```
-You can also use `TextField` modifiers like `.autocapitalization()` `.autocapitalization()`
-
-### Result
-<p float="left">
-    <img src="src/Example-advanced-1.png" width="25%">
-    <img src="src/Example-advanced-2.png" width="25%">
-    <img src="src/Example-advanced-3.png" width="25%">
-</p>
-
-## TODO
-- [ ] Square Style
-- [ ] Add Restrict Options
-- [ ] Validation Check
-
-## License
-
-CMLoadingButton is available under the MIT license. See the `LICENSE` file for more info.
+- [🇰🇷@Changemin](https://github.com/kylelobo)

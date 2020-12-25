@@ -40,7 +40,6 @@ public struct CMLottiePlayer: UIViewRepresentable {
             context.coordinator.parent.animationView.play()
         } else {
             context.coordinator.parent.animationView.pause()
-
         }
     }
 
