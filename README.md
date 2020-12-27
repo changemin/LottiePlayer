@@ -82,4 +82,4 @@ struct ContentView: View {
 
 ## ✍️ Author
 
-- [🇰🇷@Changemin](https://github.com/kylelobo)
+- Byun Kyung Min ➜ [🇰🇷@Changemin](https://github.com/Changemin)
