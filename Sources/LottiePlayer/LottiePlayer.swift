@@ -1,6 +1,6 @@
 //
-//  CMLottiePlayer.swift
-//  CMLottiePlayer
+//  LottiePlayer.swift
+//  LottiePlayer
 //
 //  Created by 변경민 on 2020/12/25.
 //
@@ -9,14 +9,14 @@ import SwiftUI
 import Lottie
 
 /// Easy & Simple Way to Use Lottie Animation
-public struct CMLottiePlayer: UIViewRepresentable {
+public struct LottiePlayer: UIViewRepresentable {
     public typealias UIViewType = UIView
     public let filename: String
     public let animationView = AnimationView()
     public let isPlay: Bool
     public let loopMode: LottieLoopMode
 
-    public func makeUIView(context: UIViewRepresentableContext<CMLottiePlayer>) -> UIView {
+    public func makeUIView(context: UIViewRepresentableContext<LottiePlayer>) -> UIView {
         let view = UIView(frame: .zero)
 
         let animation = Animation.named(filename)
@@ -35,7 +35,7 @@ public struct CMLottiePlayer: UIViewRepresentable {
         return view
     }
 
-    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<CMLottiePlayer>) {
+    public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<LottiePlayer>) {
         if isPlay {
             context.coordinator.parent.animationView.play()
         } else {
@@ -48,9 +48,9 @@ public struct CMLottiePlayer: UIViewRepresentable {
     }
 
     public class Coordinator: NSObject {
-        var parent: CMLottiePlayer
+        var parent: LottiePlayer
 
-        init(_ parent: CMLottiePlayer) {
+        init(_ parent: LottiePlayer) {
             self.parent = parent
         }
     }
@@ -77,14 +77,14 @@ public struct CMLottiePlayer: UIViewRepresentable {
     }
 }
 
-extension CMLottiePlayer {
-    /// View Modifier for CMLottiePlayer that makes loopMode to .playOnce
-    public func playOnce() -> CMLottiePlayer{
-        CMLottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .playOnce)
+extension LottiePlayer {
+    /// View Modifier for LottiePlayer that makes loopMode to .playOnce
+    public func playOnce() -> LottiePlayer{
+        LottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .playOnce)
     }
     
-    /// View Modifier for CMLottiePlayer that makes loopMode to .repeat(count: Float)
-    public func playRepeat(_ count : Float) -> CMLottiePlayer {
-        CMLottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .repeat(count))
+    /// View Modifier for LottiePlayer that makes loopMode to .repeat(count: Float)
+    public func playRepeat(_ count : Float) -> LottiePlayer {
+        LottiePlayer(filename: self.filename, isPlay: self.isPlay, loopMode: .repeat(count))
     }
 }

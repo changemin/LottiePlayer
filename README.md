@@ -3,18 +3,18 @@
  <img width=200px height=200px src="src/LottieFile.gif" alt="Project logo"></a>
 </p>
 
-<h3 align="center">🍭CMLottiePlayer🍭</h3>
+<h3 align="center">🍭SwiftUI Lottie Player🍭</h3>
 
 <div align="center">
 
-![Release](https://img.shields.io/github/v/release/CM-Material/CMLottiePlayer?style=for-the-badge)
+![Release](https://img.shields.io/github/v/release/Changemin/LottiePlayer?style=for-the-badge)
 
 
 </div>
 
 ---
 
-<p align="center"> Simple Way to Implement Lottie Animation in SwiftUI
+<p align="center"> Easiest Way to Represent Lottie Animation in SwiftUI
     <br> 
 </p>
 
@@ -31,7 +31,7 @@
 File ➜ Swift Packages ➜ Add Package Dependancy..
 ```
 ```Swift
-.package(url: "https://github.com/CM-Material/CMLottiePlayer", from: "1.0.0")
+.package(url: "https://github.com/Changemin/LottiePlayer", from: "1.1.0")
 ```
 
 ### Prepare
@@ -41,34 +41,34 @@ Download and Add you Lottie file(JSON) to project file
 
 #### 👶 Simple
 ```Swift
-CMLottiePlayer(filename: "LottieFile")
+LottiePlayer(filename: "LottieFile")
 ```
 * `filename` : Lottie file(JSON) name you added in the project file
 
 
 #### 🛠Modifiers
 ```Swift
-CMLottiePlayer(filename: "LottieFile").playOnce()
+LottiePlayer(filename: "LottieFile").playOnce()
 // Play only once
-CMLottiePlayer(filename: "LottieFile").playRepeat(3)
+LottiePlayer(filename: "LottieFile").playRepeat(3)
 // Play n times
 ```
 #### 🕹Controllable
 
 ```Swift
-CMLottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
+LottiePlayer(filename: "LottieFile", isPlay: Bool, loopMode: LottieLoopMode)
 ```
 * `isPlay` : Boolean that controls play/pause
 * `loopMode` : `LottieLoopMode`
 
 ## Example
 ```Swift
-import CMLottiePlayer
+import LottiePlayer
 
 struct ContentView: View {
     @State var isPlay: Bool = false
     var body: some View {
-        CMLottiePlayer(filename: "LottieFile", isPlay: isPlay)
+        LottiePlayer(filename: "LottieFile", isPlay: isPlay)
         
         Button(action: {
             isPlay.toggle()
